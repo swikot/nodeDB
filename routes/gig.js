@@ -6,7 +6,14 @@ const router =  express.Router();
 
 router.use('/', (req,res)=>{
 
-    res.send('GIGS');
+    Gig.findAll()
+    .then(gigs=>{ console.log(gigs);
+        res.sendStatus(200);
+    }
+         
+    ).catch(err => console.log(err)
+    )
+    
 });
 
 module.exports =router;
